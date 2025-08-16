@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AiGlobal | Home Page</title>
+  <link rel="stylesheet" href="home.css" />
+  
+  <link rel="icon" type="icon" href="img/site-con.png">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+
+
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo"><a href="home.html"><img src="img/whitelogo2.png" alt="AiGlobal"></a></div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+      <li  class="menubtn">
+        <hr>
+        <br>
+        <a  
+            style="font-size: 1em;
+                border: none;
+                color: #fff;
+                
+                border: 1px solid #d80d9b;
+                padding: 7px;
+
+                border-radius: 4px;
+                margin-right: 10px;" 
+              href="login.html" class="btn-loginm">Log In</a> 
+
+
+        <a 
+          style="background-color: #00bcd4;
+              font-size: 1em;
+              background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+              border: none;
+              color: #fff;
+              padding: 7px;
+
+              border-radius: 4px;
+              margin-left: 10px;" 
+                
+                href="signup.html" class="btn-signupm">Sign Up</a>
+        <br>
+        <br>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="auth-buttons">
+    <a href="login.html" class="btn-login">Log In</a>
+    <a href="signup.html" class="btn-signup">Sign Up</a>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Trade Smarter with AiGlobal</h1>
+    <p>AI-powered trading insights, real-time market data, and automated strategies for traders of all levels.</p>
+    <a href="signup.html" class="btn-primary">Get Started Free</a>
+  </section>
+
+  <!-- Features -->
+  <section align="center" id="features">
+    <h2>Why Choose AiGlobal?</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>AI Market Predictions</h3>
+        <p>Get real-time, AI-driven insights on stocks, forex, and crypto markets.</p>
+      </div>
+      <div class="feature">
+        <h3>Automated Trading Bots</h3>
+        <p>Let our bots trade on your behalf using smart strategies.</p>
+      </div>
+      <div class="feature">
+        <h3>Custom Strategy Builder</h3>
+        <p>Build and test your own strategies using drag-and-drop tools.</p>
+      </div>
+      <div class="feature">
+        <h3>Live Market Dashboard</h3>
+        <p>Track trends, charts, and breaking news from one central hub.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section align="center" id="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Sign Up:</strong> Create your free account.</li>
+      <li><strong>Customize:</strong> Choose your assets and set your strategy.</li>
+      <li><strong>Analyze:</strong> Get real-time insights from AI models.</li>
+      <li><strong>Trade:</strong> Trade manually or enable automation.</li>
+    </ol>
+  </section>
+
+  <!-- About -->
+  <section align="center" id="about">
+    <h2>About AiGlobal</h2>
+    <p>AiGlobal is a next-generation trading platform combining the power of artificial intelligence and big data analytics to help traders make smarter, faster decisions in global markets.</p>
+  </section>
+
+
+
+<section id="crypto-widget">
+  <h2>Live Crypto Market Signals</h2>
+  <div id="status-message">Loading live prices...</div>
+  <div class="crypto-cards" id="crypto-cards"></div>
+</section>
+
+
+
+  <!-- Tools -->
+  <section align="center" id="tools">
+    <h2>Powerful Trading Tools</h2>
+    <ul>
+      <li>Smart Charting Tools</li>
+      <li>Real-Time Alerts</li>
+      <li>Economic Calendar</li>
+      <li>Backtesting Environment</li>
+      <li>Mobile Trading App</li>
+    </ul>
+  </section>
+
+
+
+<section id="live-activity">
+  <h2>Live Trading Activity</h2>
+  <div class="activity-feed" id="activity-feed">
+    <!-- JS will inject activity items here -->
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- Pricing -->
+  <section align="center" id="pricing">
+
+
+    
+    <h2>Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="plan">
+        <h3>Free</h3>
+        <p>$0/month</p>
+        <ul>
+          <li>Basic Analytics</li>
+          <li>1 Strategy Bot</li>
+          <li>Community Support</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Pro</h3>
+        <p>$29/month</p>
+        <ul>
+          <li>Advanced AI Signals</li>
+          <li>5 Strategy Bots</li>
+          <li>Email Alerts</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Elite</h3>
+        <p>$99/month</p>
+        <ul>
+          <li>All Pro Features</li>
+          <li>Unlimited Bots</li>
+          <li>Priority Support</li>
+          <li>One-on-One Strategy Sessions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <h2>What Our Traders Say</h2>
+  <div class="testimonial-slider">
+
+    <blockquote>
+      <div class="testimonial-content">
+        <img src="img/cheerful-good-natured-man-his-workplace-friendly-boss-portrait-middle-aged-office-237403690.webp" alt="Alex R." class="profile-img">
+        <div>
+          <p>“AiGlobal helped me automate my crypto trading and increase my returns by 35%.”</p>
+          <footer>- Alex R., Crypto Investor</footer>
+        </div>
+      </div>
+    </blockquote>
+
+    <blockquote>
+      <div class="testimonial-content">
+        <img src="img/360_F_517542860_S6JeujV9a7G8bhje5qIyfYNCNBvowUeS.jpg" alt="Maria D." class="profile-img">
+        <div>
+          <p>“The AI insights are spot on. It's like having a team of analysts 24/7.”</p>
+          <footer>- Maria D., Forex Trader</footer>
+        </div>
+      </div>
+    </blockquote>
+
+    <blockquote>
+      <div class="testimonial-content">
+        <img src="img/photo-1624797432677-6f803a98acb3.jfif" alt="James K." class="profile-img">
+        <div>
+          <p>“With AiGlobal’s real-time alerts, I caught trends I would've missed. Amazing tool!”</p>
+          <footer>- James K., Day Trader</footer>
+        </div>
+      </div>
+    </blockquote>
+
+  </div>
+
+  
+</section>
+
+
+
+
+
+  <!-- Newsletter -->
+  <section align="center" id="newsletter">
+    <h2 align=""center>Stay Ahead with AiGlobal</h2>
+    <p align="center">Subscribe to receive weekly trading tips and AI updates.</p> <br>
+    <form align="center">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- Chat Window -->
+  <div style="display: none;" id="chat-container">
+    <!-- Chat Header -->
+    <div id="chat-header">
+      <div id="bot-logo">B</div>
+      <span> ChatBot </span>
+      <div id="loading-indicator"></div>
+      <button id="menu-icon" onclick="toggleMenu()">...</button>
+      <div id="close-chat" onclick="closeChat()">X</div>
+      <!-- Dropdown Menu -->
+      <div id="menu">
+        <a href="javascript:avoid(0)" onclick="restartConversation()"><i class="fa-solid fa-arrows-rotate"></i>&nbsp; Start over</a>
+        <a href="javascript:avoid(0)" onclick="realPerson()"><i class="fa-brands fa-teamspeak"></i>&nbsp; Real Person</a>
+      </div>
+    </div>
+
+    <!-- Chatbox -->
+    <div  id="chatbox"></div>
+
+    <!-- Input section -->
+    <div id="input-section">
+      <input type="text" maxlength="22" id="input-box" placeholder="Type your message..." onkeyup="sendMessage(event)">
+      <button id="send-button" onclick="sendMessageButton()">Send</button>
+    </div>
+  </div>
+
+  <!-- Button to open chat -->
+  <button id="open-chat-btn" onclick="openChat()"><i class="fa-brands fa-teamspeak"></i>&nbsp; Alexa</button>
+
+  <link rel="stylesheet" href="chat.css">
+  <script src="chat.js"></script>
+
+
+
+
+
+
+
+
+
+
+<section id="download">
+  <h2>Get the AiGlobal App</h2>
+  <p>Trade smarter anytime, anywhere. Download our app for your preferred device:</p>
+  <div class="download-buttons">
+    <a href="#" class="download-btn ios"><i class="fab fa-apple"></i> iOS</a>
+    <a href="apps/AiGlobal.apk" class="download-btn android"><i class="fab fa-android"></i> Android</a>
+    <a href="#" class="download-btn windows"><i class="fab fa-windows"></i> Windows</a>
+    <a href="#" class="download-btn mac"><i class="fab fa-apple"></i> Mac</a>
+    <a href="#" class="download-btn linux"><i class="fab fa-linux"></i> Linux</a>
+
+  </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-sections">
+      <div>
+        <h4>AiGlobal</h4>
+        <p>Smart trading, powered by AiGlobal.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="javascript:void(0)">Help Center</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="terms&conditions.html">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms&conditions.html">Privacy Policy</a></li>
+          <li><a href="terms&conditions.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 AiGlobal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="home.js"></script>
+
+
+
+
+
+
+</body>
+</html>

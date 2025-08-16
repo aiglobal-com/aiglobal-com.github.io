@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AiGlobal</title>
+    <link rel="icon" type="icon" href="img/site-con.png">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contappvw {
+            background-color: #1e1e1e; /* Deep charcoal background */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contappvw:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .headappvw h1 {
+            font-size: ;
+            color: #ffffff; /* White text for better contrast on dark background */
+            margin-bottom: 20px;
+            text-transform: ;
+        }
+
+        .headappvw p {
+            font-size: 1.2em;
+            color: #ddd; /* Lighter gray text */
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+
+
+
+        .btn-contappvw {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 30px;
+        }
+
+        
+
+
+        .btnappvw1 {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45%;
+            text-align: center;
+            margin-right: 2px;
+            text-decoration: none;
+        }
+
+        .btnappvw1:hover {
+            transform: translateY(-3px);
+        }
+        .btnappvw2 {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45%;
+            text-align: center;
+            margin-left: 2px;
+            text-decoration: none;
+        }
+
+        .btnappvw2:hover {
+            transform: translateY(-3px);
+        }
+
+
+
+
+        .fooappvw {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #bbb; /* Light gray for footer text */
+        }
+
+        .fooappvw a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #5f6aff;
+        }
+
+        .fooappvw a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .homepage-btnappvw{
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: underline;
+        }
+        .homepage-btnappvw:hover {
+            transform: translateY(-3px);
+        }
+
+        .visit-btnappvw {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: underline;
+        }
+
+        .visit-btnappvw:hover {
+            transform: translateY(-3px);
+        }
+
+        
+        .homey{display:;}
+        .visity{display: none;}
+
+
+        @media (max-width:700px){
+            .homey{display:none;}
+            .visity{display:block ;}
+
+        }
+        @media (max-width:500px){
+            .contappvw {
+                background-color: #1e1e1e; /* Deep charcoal background */
+                border-radius: ;
+                width: 80%;
+                
+                max-width: 300px;
+            }
+
+
+
+
+            
+            
+            .contappvw{font-size: 1em;}
+            .contappvw h1{font-size: 1.3em;}
+            .btn-contappvw a {font-size: 1em; padding: 10px;}
+            .btnappvw1 {margin-right: 5px;}
+            .btnappvw2 {margin-left: 5px;}
+            .fooappvw p {font-size: 1em;}
+            .visity a {font-size: 1em; padding: 10px;}
+
+            
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="contappvw">
+        <div class="headappvw">
+            <h1>WELCOME TO AiGlobal</h1>
+            <p>Log in to start enjoying amazing services!</p>
+        </div>
+
+        <!-- Button Container for login/signup -->
+        <div class="btn-contappvw">
+            <a href="login.html" class="btnappvw1">Login</a>
+            <a href="signup.html" class="btnappvw2">Sign Up</a>
+        </div>
+
+        <div class="fooappvw">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p>New to our app? <a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <!-- Visit Website Button -->
+        <div class="fooappvw">
+            <div class="homey">
+                <a href="home.html" >
+                    <button class="homepage-btnappvw">Home Page</button>
+                </a>
+            </div>
+            <div class="visity">
+                
+
+                
+
+                <a style="color: white;" class="visit-btnappvw" href="intent://aiglobal-com.github.io/home.html#Intent;scheme=https;package=com.android.chrome;end;">Visit our website</a>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</body>
+</html>

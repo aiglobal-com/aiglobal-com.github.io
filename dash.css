@@ -1,0 +1,132 @@
+.dashpre{
+  padding: 5px;
+  
+}
+
+
+.dashpre1
+{background-color: black;
+  border: solid 1px white;
+  border-radius: 20px;
+  padding: 5px;
+  width: 90%;
+}
+
+.dashpre2{
+  border-radius: 20px;
+  padding: 10px;
+
+  display: block;
+    background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px;
+    width: 90%;
+}
+
+
+.depobalancedash{display: block; background-color: black; padding: 0px;  border-radius: 10px; }
+.depobalancedash div{justify-content: space-between; align-items: center; display: flex; height: 6vh; }
+.depobalancedash div h1{ font-size: 1.6em; font-weight: 600; color: white; }
+.depobalancedash div h3{font-size: 1.2em; font-weight: 600; color: white; }
+.depobalancedash div span{color:  rgba(177, 213, 247, 0.836); font-size: 2em; background-color:rgba(39, 75, 109, 0.541); padding-left: 10px;padding-right: 10px; border-radius: 10px;}
+.depobalancedash div h4{text-align: left; color: rgb(206, 0, 86); width: 100%;  padding-left: 15px; font-size: 1.4em; font-weight: 650;  border-left:30px solid #ca89e4; border-radius: 25%; }
+
+.dashbalance{}
+
+
+
+
+
+.dashhead{
+  
+  padding: 10px;
+}
+
+.dash001-dashboard {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  background: #fff;
+  background: rgb(43, 245, 59);
+  background: rgb(105, 112, 106);
+  background: rgb(27, 27, 27);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin-top: 40px;
+  color: white;
+  border: 1px solid white;
+}
+
+.dash001-title,
+.dash001-subtitle {
+  text-align: center;
+  color: #444;
+}
+
+.dash001-summary-cards {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dash001-card {
+  background-color: #f0f0f0;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.dash001-card h2 {
+  margin-bottom: 10px;
+}
+
+.dash001-card h2 i {
+  margin-right: 8px;
+  color: #4a90e2;
+}
+
+.dash001-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dash001-history-table th,
+.dash001-history-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .dash001-summary-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+@media (max-width:500px){
+    .depobalancedash div h3{font-size: 1em; }
+    .depobalancedash div h1{font-size: 1.3em; }
+    .depobalancedash div h4{font-size: 1.1em; }
+    .depobalancedash div span{font-size: 1.5em; }
+
+
+
+    .dash001-dashboard h1{font-size: 1em;}
+    .dash001-dashboard h2{font-size: 1em;}
+    .dash001-card{background: linear-gradient(to right, #d80d9b,  #ca89e4, #5f6aff );}
+    .dash001-card h2 i {color: #0059be;}
+    
+}
