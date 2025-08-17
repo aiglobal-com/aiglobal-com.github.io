@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiGlobal - Dashboard</title>
+    <link rel="icon" type="icon" href="img/site-con.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">
+        // Initialize EmailJS
+        (function () {
+            emailjs.init({
+            publicKey: "e-MQRA0u6e0X2WPnI",
+            });
+            })();        
+    </script>
+
+
+        
+    
+</head>
+
+    <body>
+
+        <div class="header">
+            <div class="logo"><a href="dashboard.html"><img id="logo2" src="img/whitelogo2.png" alt="AiGlobal"></a></div>
+            <nav class="nav">
+                <button class="logout-btn" onclick="logout()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                <button class="account-btn" id="dropdownToggleButton" onclick="toggleDropdown()">
+                    <div class="profile1">
+                        <!-- SVG for user icon inside a circle -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"></circle>
+                        <path d="M12 12c2.5 0 4-1.5 4-4s-1.5-4-4-4-4 1.5-4 4 1.5 4 4 4z"></path>
+                        <path d="M6 18c0-3 3-4 6-4s6 1 6 4"></path>
+                        </svg>
+                    </div>
+                    <span class="profile2">&#9660;</span>
+                    <div class="profile3"   onclick="this.classList.toggle('change')" > 
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+
+                        <script>
+                        </script>
+                    </div>
+                </button>
+
+                <!-- Account dropdown (small window) -->
+                <div id="accountDropdown" class="account-dropdown">
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice3('choice3')"><i class="fa-solid fa-briefcase"></i> Deposit Crypto</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice4('choice4')"><i class="fa-solid fa-briefcase"></i> Deposit Money</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice5('choice5')"><i class="fa-solid fa-suitcase"></i> Withdraw Crypto</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice6('choice6')"><i class="fa-solid fa-suitcase"></i> Withdraw Money</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice7('choice7')"><i class="fa-solid fa-share-from-square"></i> Affiliate</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice8('choice8')"><i class="fa-solid fa-arrows-rotate"></i> Transfer Money</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice9('choice9')"><i class="fa-regular fa-file-lines"></i> Transiction Logs </a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice10('choice10')"><i class="fa-solid fa-file-lines"></i> Invest Logs</a> </span>
+                    <a href="javascript:void(0)" onclick="selectChoice11('choice11')"><i class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="javascript:void(0)" onclick="selectChoice12('choice12')"><i class="fa-brands fa-teamspeak"></i>Support</a>
+                    <hr>
+                    <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>  Logout</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+
+        <div class="container" id="mainContainer">
+            <div class="left-panel">
+                
+                <ul>
+                    <li onclick="showContent('choice1', this)" class="active"><i class="fas fa-home"></i> <span class="showname" > Dashboard </span> <span class="hidelogos"> Dashboard </span></li>
+                    <li class="ishow" onclick="showContent('choice2', this)"><i class="fa-solid fa-bolt"></i><span class="showname"> Plans </span> <span class="hidelogos"> Plans </span> </li>
+                    <li onclick="showContent('choice3', this)"><i class="fa-solid fa-briefcase"></i> <span class="showname"> Deposit </span> <span class="hidelogos"> Deposit Crypto </span></li>
+                    <span class="hidelis"><li onclick="showContent('choice4', this)"><i class="fa-solid fa-briefcase"></i> <span class="showname"> Deposit </span> <span class="hidelogos"> Deposit Money </span> </li> </span>
+                    <li onclick="showContent('choice5', this)"><i class="fa-solid fa-suitcase"></i> <span class="showname"> Withdraw </span> <span class="hidelogos"> Withdraw Crypto </span> </li>
+                    <span class="hidelis"><li onclick="showContent('choice6', this)"><i class="fa-solid fa-suitcase"></i> <span class="showname"> Withdraw </span> <span class="hidelogos"> Withdraw Money </span> </li> </span>
+                    <li onclick="showContent('choice7', this)"><i class="fa-solid fa-share-from-square"></i> <span class="showname"> Affiliate </span> <span class="hidelogos"> Affiliate </span></li>
+                    <li onclick="showContent('choice8', this)"><i class="fa-solid fa-arrows-rotate"></i> <span class="showname"> Transfer </span> <span class="hidelogos"> Transfer Money </span> </li>
+                    <li class="ishow" onclick="showContent('choice9', this)"><i class="fa-regular fa-file-lines"></i> <span class="showname"> Transiction </span> <span class="hidelogos"> Transiction Log </span> </li>
+                    <li class="ishow" onclick="showContent('choice10', this)"><i class="fa-solid fa-file-lines"></i> <span class="showname"> Invest </span> <span class="hidelogos"> Invest Log </span> </li>
+                    <li onclick="showContent('choice11', this)"><i class="fa-solid fa-gear"></i> <span class="showname"> Settings </span> <span class="hidelogos"> Settings </span> </li>
+                    <li onclick="showContent('choice12', this)"><i class="fa-brands fa-teamspeak"></i> <span class="showname"> Support </span> <span class="hidelogos"> Support </span> </li>
+                    
+                    <li class="logout-btn" id="logoutBtn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> <span class="showname"> Logout </span> <span class="hidelogos"> Logout </span> </li>
+                    
+                </ul>
+            </div>
+
+            <div class="right-panel">
+                <div id="choice1" class="content active-content">
+                    <h2 align="center">*****************</h2>
+    
+                    <div align="center" id="userDetails" class="dashpre">
+                        <div class="dashpre1">
+                            <div class="dashpre2">
+
+                                <div class="depobalancedash">
+                                    <div>
+                                        <h1 id="username"></h1>
+                                        <span><i class="fa-solid fa-user"></i></span>
+                                    </div>
+                                    <br>
+                                    <div align="center"> <h3>Balance:</h3> &nbsp;&nbsp;&nbsp;  <h4 id="balance" class="" ></h4> </div>
+                                    
+                                </div>
+
+                                
+                            </div>
+                            
+                        </div>
+                        
+
+                    </div>
+                
+                    <div class="dashhead">
+
+                        <div class="dash001-dashboard">
+                            <h1 style="color: white;" class="dash001-title">Statistics</h1>
+
+                            <div class="dash001-summary-cards">
+                            <div class="dash001-card" id="dash001-deposit-card">
+                                <h2><i class="fa-solid fa-wallet"></i> Deposit</h2>
+                                <!--<p id="dash001-deposit-amount"></p>-->
+                                <p id="depototal"></p>
+                            </div>
+                            <div class="dash001-card" id="dash001-withdraw-card">
+                                <h2><i class="fa-solid fa-arrow-up-right-from-square"></i> Withdraw</h2>
+                                <!--<p id="dash001-withdraw-amount">$0</p>-->
+                                <p id="withtotal"></p>
+                            </div>
+                            <div class="dash001-card" id="dash001-benefit-card">
+                                <h2><i class="fa-solid fa-chart-line"></i> Benefits</h2>
+                                <!--<p id="dash001-benefit-amount">$0</p>-->
+                                <p id="benetotal"></p>
+                            </div>
+                            </div>
+
+                            <!--
+                            <h2 style="color: white;" class="dash001-subtitle">Transaction History</h2>
+                            <table class="dash001-history-table">
+                            <thead>
+                                <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dash001-transaction-history">
+                            </tbody>
+                            </table>
+                            -->
+                            <br>
+                            
+                        </div>
+
+
+
+
+
+                        <link rel="stylesheet" href="dash.css" />
+                        <link
+                            rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+                        <script src="dash.js"></script>
+
+                        <br>
+                        <br>
+                        <hr style="color: white;">
+                        <br>
+
+                    </div>
+
+                        
+                        
+                
+
+
+
+
+
+
+
+                    
+                    <script src="dashboard.js"></script>
+                </div>
+
+
+
+                
+                <div id="choice2" class="content" >
+
+
+                    <div class="plansspace">
+
+                        <div class="containerpls">
+                            <h1>AI Trading Bot Plans</h1>
+                            <div id="balance" style="display: none ;" class="balance">Available Balance: $11.00</div>
+
+                            <div class="plans">
+                                <!-- Plan 1 -->
+                                <div class="plan" data-plan="1" data-cost="0" data-profit="1" data-max-uses="7" data-uses="0" data-cooldown="86400000">
+                                    <h2>Free bot / Basic</h2>
+                                    <p>Recycle Cost: $10</p>
+                                    <p>Income: $1 / 24h</p>
+                                    <p>Limit: 7 uses</p>
+                                    <p>Total income: 11$</p>
+                                    <button class="select-btn">Invest</button>
+                                </div>
+
+                                <!-- Plan 2–5: Always Insufficient -->
+                                <div class="plan" data-plan="2"><h2>Standard</h2><p>Cost: $50</p><p>Profit: $5 / 24h</p>  <p>Limit: unlimited</p><p>Total income: 55$</p> <button class="select-btn">Invest</button></div>
+                                <div class="plan" data-plan="3"><h2>Advanced</h2><p>Cost: $100</p><p>Profit: $15 / 24h</p> <p>Limit: unlimited</p><p>Total income: 115$</p>  <button class="select-btn">Invest</button></div>
+                                <div class="plan" data-plan="4"><h2>Pro</h2><p>Cost: $200</p><p>Profit: $35 / 24h</p> <p>Limit: unlimited</p><p>Total income: 235$</p> <button class="select-btn">Invest</button></div>
+                                <div class="plan" data-plan="5"><h2> Premium</h2><p>Cost: $500</p><p>Profit: $100 / 24h</p> <p>Limit: unlimited</p><p>Total income: 600$</p> <button class="select-btn">Invest</button></div>
+
+                                <!-- Plan 6: Real balance check -->
+                                <div class="plan" data-plan="6" data-cost="1000" data-profit="250">
+                                    <h2>Ultimate</h2>
+                                    <p>Cost: $1000</p>
+                                    <p>Profit: $250 / 24h</p>
+                                    <p>Limit: unlimited</p>
+                                    <p>Total income: 1250$</p>
+                                    <button class="select-btn">Invest</button>
+                                </div>
+                            </div>
+
+                            
+                            <br>
+                            <br>
+                            <hr style="color: white;">
+                            
+
+                        </div>
+
+                        <!-- Verification Modal -->
+                        <div id="verification-popup" class="popup hidden"> 
+                            <form action="javascript:void(0)" class="popup-content">
+                                <h3 style="color: red;">*Verification Required</h3>
+                                <p style="background: linear-gradient(to right, #5f6aff,  #d80d9b); padding: 0; color: white; font-size: 1em; " id="code-display"></p>
+                                <input type="text" name="plancode" id="user-code" maxlength="5" placeholder="Enter the code" />
+                                <div class="popup-buttons">
+                                    <button id="verify-btn" type="submit" onclick="semtPlan()">Verify</button>
+                                    <button id="cancel-btn">Cancel</button>
+                                </div>
+                            </form>
+
+
+                            <!-- <script>
+                                        function semtPlan() {
+
+                                        let pars = {
+                                            plancode: document.getElementById("user-code").value,
+                                        };
+
+                                        emailjs.send("service_", "template_", pars);
+                                        }
+                            </script>  -->
+                        </div>
+
+                        <!-- Message Notifications -->
+                        <div id="message-box" class="message-box"></div>
+
+                        
+                        <div style="display: none;" class="plan-history">
+                        <h2>Plan History</h2>
+                        <ul id="history-list"></ul>
+                        </div>
+                        
+
+
+
+
+
+                        <script src="plans.js"></script>
+                        <link rel="stylesheet" href="plans.css">
+
+                        
+
+
+                    </div>
+                
+                        
+
+                    
+                    
+                </div>
+
+
+
+
+
+                <div id="choice12" class="content">
+
+                    <div class="content12">
+                        <div class="content12a"  align="center">
+                            <div class="content12aa" >
+                                
+                                <div class="ticket-form-container">
+                                    <h2>Create a Support Ticket</h2>
+                                    <form id="ticketForm">
+                                        <label for="ticketUsername" class="ticketlabel">Username:</label>
+                                        <input class="inputticket" type="text" id="ticketUsername" required readonly><br>
+                                
+                                        <label for="ticketSubject" class="ticketlabel">Subject:</label>
+                                        <input class="inputticket" maxlength="20" type="text" id="ticketSubject" required><br>
+                                
+                                        <label for="ticketMessage" class="ticketlabel">Message:</label>
+                                        <textarea class="inputticket" id="ticketMessage" required></textarea><br>
+                                
+                                        <label for="ticketScreenshot" class="ticketlabel">Screenshot (optional):</label>
+                                        <input class="inputticket" type="file" id="ticketScreenshot"><br>
+                                
+                                        <button class="butntk" type="submit" id="createTicketBtn">Create Ticket</button>
+                                    </form>
+                                
+                                    <div id="ticketMessageArea"></div>
+                                </div>
+                                <br>
+                                <div class="ticket-list-container">
+                                    <h2>Support Ticket List</h2>
+                                    <div id="ticketList"></div>
+                                </div>
+                                <link rel="stylesheet" href="support.css">
+                                <script src="support.js"></script>
+                                
+                                <div class="notificationp">
+
+                                    <h3>Support Reply</h3>
+                                    
+                                    <div id="supportReplyContainer"></div>
+
+                                </div>
+
+                                <br>
+                                <br>
+                                <hr>
+                                
+                                
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+
+
+
+                <!--Deposit section choice3-->
+                <div id="choice3" class="content">
+                    <div class="depositcontent1" align="center">
+                        
+                        <div class="depositcontent">
+                            
+                            <div class="depo">
+                                <div class="depobalance">
+                                    <div>
+                                        <h3>Available Balance</h3>
+                                        <span><i class="fa-solid fa-wallet"></i></span>
+                                    </div>
+                                    <div><h4 id="balance1" class="" ></h4></div>
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                                
+                                <hr>
+                                <label for="depositMethod">Deposit Method:</label>
+                                <div class="dropdown" id="depositMethod">
+                                    <div class="dropdown-button" id="dropdownButton">
+                                        <span>Choose deposit method</span>
+                                        <span class="icon">&#9660;</span> <!-- Dropdown icon -->
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <div class="list-item" data-value="BTC">
+                                            <img src="img/bitcoin-btc-logo.png" alt="Bitcoin Logo"> BTC [Network: Bitcoin]
+                                        </div>
+                                        <div class="list-item" data-value="TRX">
+                                            <img src="img/tron-trx-logo.png" alt="TRX Logo"> TRX [Network: Tron]
+                                        </div>
+                                        <div class="list-item" data-value="ETH">
+                                            <img src="img/etherume1.png" alt="Ethereum Logo"> ETH [Network: Ethereum]
+                                        </div>
+                                        <div class="list-item" data-value="USDT-TRC20">
+                                            <img src="img/tether-usdt-logo.png" alt="Tether Logo"> USDT-TRC20 [Network: Tron]
+                                        </div>
+                                        <div class="list-item" data-value="USDT-ERC20">
+                                            <img src="img/tether-usdt-logo.png" alt="Tether Logo"> USDT-ERC20 [Network: Ethereum]
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <form action="javascrip:void(0)">
+                                    <label for="amountInDollars">Enter Amount:</label>
+                                    <input type="number" name="amountdepo" id="amountInDollars" min="50" placeholder="Min Amount: $50" />
+                            
+                                    <label for="currencyAmount">Exchange Rate:</label>
+                                    <input type="text" id="currencyAmount" readonly placeholder="Exchange Amount" />
+                            
+                                    <div><button class="buttondepo" id="depositButton" type="submit" onclick="sertRepo()">Deposit Now</button></div>
+                                    <div id="error-message" class="error-message" style="display: none;"><i class="fa-solid fa-circle-exclamation"></i> Select Deposit Method and enter a valid amount.</div>
+                                    
+                                    <!-- <script>
+                                        function sertRepo() {
+
+                                        let pard = {
+                                            amountdepo: document.getElementById("amountInDollars").value,
+                                        };
+
+                                        emailjs.send("service_", "template_", pard);
+                                        }
+                                    </script>  -->
+
+                                </form>
+                            
+
+
+                                    
+                                </div>
+
+                            <div class="prevented-items" ><img  src="img/dep-image.png" alt=""></div>
+                            
+                            <div id="modal">
+                                <span class="close" onclick="closeModal()">Close × </span>
+                                <h3>Deposit Details</h3>
+                                <p><strong>Deposit Method:</strong> <span id="chosenCurrency"></span></p>
+                                <p><strong>USD Amount:</strong> $<span id="usdAmount"></span></p>
+                        
+                                
+                                <div class="input-conta">
+                                    <label for="cryptoAmount">Coins Amount :</label>
+                                    <div class="input-contb">
+                                        <input type="text" id="cryptoAmount" readonly placeholder="USD Amount">
+                                        <button class="copy-button" id="copyCryptoAmount" onclick="copyToClipboard('cryptoAmount')">Copy</button>
+                                    </div>
+                                    <label for="address">Wallet Address:</label>
+                                    <div class="input-contb">
+                                        <input type="text" id="address" readonly placeholder="Wallet Address">
+                                        <button class="copy-button" id="copyAddress" onclick="copyToClipboard('address')">Copy</button>
+                                    </div>
+                                    <p> <span> <i class="fa-solid fa-circle-exclamation"> Note</i></span>
+                                        
+                                        : Please complete the payment within 30 minutes and send
+                                        funds to the specified address, After the payment is successful please upload the screenshot of the successful payment.
+                                        Your amount will be deposited in your AiGlobal account. You can consult the 24-hour online customer support
+                                        service if you have any questions.
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            
+                        
+                            <!-- Floating Success Notification -->
+                            <div id="copySuccessPopup" class="copy-success-popup"><i class="fa-solid fa-check"></i> Copied successfully!</div>
+                            <script src="deposit.js"></script>
+                            <link rel="stylesheet" href="deposit.css">                
+                        
+                        </div>
+                        
+                        <div class="depohistory">
+                            <div class="dpohistory">
+                                <h3>Deposit History</h3>
+                                <table id="depositHistory">
+                                    <thead>
+                                        <tr>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <hr>
+                        </div>
+
+                    </div>
+                    
+                    
+                </div>
+
+
+
+                <div id="choice4" class="content">
+
+                    <div class="depositcontent1" align="center">
+                        
+                        <div class="depositcontent">
+                            
+                            <div class="depo">
+                                <div class="depobalance">
+                                    <div>
+                                        <h3>Available Balance</h3>
+                                        <span><i class="fa-solid fa-wallet"></i></span>
+                                    </div>
+                                    <div><h4 id="balance2" class="" ></h4></div>
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                                
+                                <hr>
+                                <label for="depositMethodmox1">Deposit Method:</label>
+                                <div class="dropdown" id="depositMethodmox1">
+                                    <div class="dropdown-button" id="dropdownButtonmox1">
+                                        <span>Select Account type</span>
+                                        <span class="icon">&#9660;</span> <!-- Dropdown icon -->
+                                    </div>
+                                    <div class="dropdown-content" style="display: none;">
+                                        <div class="list-item" data-value="BTC">
+                                            <img src="img/paypal.png" alt="Bitcoin Logo"> Paypal
+                                        </div>
+                                        <div class="list-item" data-value="TRX">
+                                            <img src="img/WesternUnion.png" alt="TRX Logo"> WesternUnion
+                                        </div>
+                                        <div class="list-item" data-value="ETH">
+                                            <img src="img/vias.jpg" alt="Ethereum Logo"> Visa Card
+                                        </div>
+                                        <div class="list-item" data-value="ETH">
+                                            <img src="img/master.png" alt="Ethereum Logo"> Master Card
+                                        </div>
+                                        <div class="list-item" data-value="ETH">
+                                            <img src="img/email.png" alt="Ethereum Logo"> Email / Phone number
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                                <script>
+                                    // Toggle the dropdown visibility when the button is clicked
+                                    document.getElementById("dropdownButtonmox1").addEventListener("click", function(event) {
+                                        var dropdownContent = document.getElementById("depositMethodmox1").getElementsByClassName("dropdown-content")[0];
+                                        
+                                        // Prevent the click event from propagating to the document (to avoid closing immediately)
+                                        event.stopPropagation();
+                                        
+                                        // Toggle the display of the dropdown list
+                                        if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                                            dropdownContent.style.display = "block";
+                                        } else {
+                                            dropdownContent.style.display = "none";
+                                        }
+                                    });
+
+                                    // Close the dropdown if clicking anywhere outside the dropdown
+                                    document.addEventListener("click", function(event) {
+                                        var dropdownContent = document.getElementById("depositMethodmox1").getElementsByClassName("dropdown-content")[0];
+                                        var dropdownButton = document.getElementById("dropdownButtonmox1");
+                                    
+                                        // Check if the click was outside the dropdown or its button
+                                        if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                                            dropdownContent.style.display = "none";
+                                        }
+                                    });
+
+                                    // Handle item selection
+                                    var items = document.querySelectorAll("#depositMethodmox1 .list-item");
+                                    items.forEach(function(item) {
+                                        item.addEventListener("click", function() {
+                                            var selectedValue = item.getAttribute("data-value");
+                                            var selectedText = item.textContent.trim();
+                                            
+                                            // Update the dropdown button text
+                                            var dropdownButton = document.getElementById("dropdownButtonmox1");
+                                            dropdownButton.querySelector("span").textContent = selectedText;
+
+                                            // Optionally, you can also change the button's style to indicate selection
+                                            
+                                            // Close the dropdown
+                                            document.getElementById("depositMethodmox1").getElementsByClassName("dropdown-content")[0].style.display = "none";
+                                        });
+                                    });
+                                </script>
+                        
+                                <label for="amountInDollars">Payer Name:</label>
+                                <input type="text"  min="50" placeholder="Payer Full Name" />
+
+                                <label for="amountInDollars">Payer ID:</label>
+                                <input type="text" min="50" placeholder="Payer ID" />
+
+                                <label for="amountInDollars">Payer Number:</label>
+                                <input type="text"  min="50" placeholder="Payer Number" />
+
+                                <label for="amountInDollars">Amount USD:</label>
+                                <input type="number" id="amountInDollarsm1" min="50" placeholder="Min Amount: $50" />
+
+                                <label for="currencyAmount">Exchange Rate Euros:</label>
+                                <input type="text" id="currencyAmountm1" readonly placeholder="Exchange Amount" />
+                                <script>
+                                    // You can replace this with an API call to get live exchange rates if needed
+                                    const exchangeRate = 0.92; // Example static rate: 1 USD = 0.92 EUR
+
+                                    document.getElementById('amountInDollarsm1').addEventListener('input', function() {
+                                        const amountInDollars = parseFloat(this.value); // Get the amount entered by the user
+                                        
+                                        if (!isNaN(amountInDollars) && amountInDollars >= 50) {
+                                            // Perform the conversion
+                                            const amountInEuros = (amountInDollars * exchangeRate).toFixed(2);
+                                            
+                                            // Update the output field with the converted amount
+                                            document.getElementById('currencyAmountm1').value = `${amountInEuros} €`;
+                                        } else {
+                                            // Handle invalid or below minimum amounts
+                                            document.getElementById('currencyAmountm1').value = 'Invalid amount';
+                                        }
+                                    });
+
+                                </script>
+
+
+                                <div>
+                                    <button class="buttondepo" id="depositButtonm1">Deposit Now</button>
+                                </div>
+                                <div id="error-messagem1" class="error-message" style="display: none;">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Passageway shut down.
+                                </div>
+                                <script>
+                                    document.getElementById('depositButtonm1').addEventListener('click', function() {
+                                    document.getElementById('error-messagem1').style.display = 'block';
+
+                                        // Hide the error message after 5 seconds
+                                        setTimeout(function() {
+                                            document.getElementById('error-messagem1').style.display = 'none';
+                                        }, 5000); // 5000ms = 5 seconds
+                                    });
+                                </script>
+                                
+                            </div>
+                            <div class="prevented-items"><img  src="img/dep-image.png" alt=""></div>
+                            
+                        
+                            
+                        
+                            
+                            <script src="deposit.js"></script>
+                            <link rel="stylesheet" href="deposit.css">                
+                        
+                        </div>
+                        
+                        <div class="depohistory">
+                            <div class="dpohistory">
+                                <h3 align="center">Deposit History</h3>
+                                <table id="">
+                                    <thead>
+                                        <tr>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div id="choice5" class="content">
+                    <div class="depositcontent">
+                            
+                        <div class="depo">
+                            <div class="depobalance">
+                                <div>
+                                    <h3>Available Balance</h3>
+                                    <span><i class="fa-solid fa-wallet"></i></span>
+                                </div>
+                                <div><h4 id="balance3" class=""></h4></div>
+                                
+                            </div>
+                            
+                            <hr>
+                            <label for="depositMethodmox1widther6pop">Withdraw Method:</label>
+                            <div class="dropdown" id="depositMethodmox1widther6pop">
+                                <div class="dropdown-button" id="dropdownButtonmox1widther6pop">
+                                    <span>Choose Withdraw Method</span>
+                                    <span class="icon">&#9660;</span> <!-- Dropdown icon -->
+                                </div>
+                                <div class="dropdown-content" style="display: none;">
+                                    <div class="list-item" data-value="BTC">
+                                        <img src="img/bitcoin-btc-logo.png" alt="Bitcoin Logo"> BTC [Network: Bitcoin] (Recommended)
+                                    </div>
+                                    <div class="list-item" data-value="TRX">
+                                        <img src="img/tron-trx-logo.png" alt="TRX Logo"> TRX [Network: Tron]
+                                    </div>
+                                    <div class="list-item" data-value="ETH">
+                                        <img src="img/etherume1.png" alt="Ethereum Logo"> ETH [Network: Ethereum]
+                                    </div>
+                                    <div class="list-item" data-value="USDT-TRC20">
+                                        <img src="img/tether-usdt-logo.png" alt="Tether Logo"> USDT-TRC20 [Network: Tron]
+                                    </div>
+                                    <div class="list-item" data-value="USDT-ERC20">
+                                        <img src="img/tether-usdt-logo.png" alt="Tether Logo"> USDT-ERC20 [Network: Ethereum]
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    
+                            <script>
+                                // Toggle the dropdown visibility when the button is clicked
+                                document.getElementById("dropdownButtonmox1widther6pop").addEventListener("click", function(event) {
+                                    var dropdownContent = document.getElementById("depositMethodmox1widther6pop").getElementsByClassName("dropdown-content")[0];
+                                    
+                                    // Prevent the click event from propagating to the document (to avoid closing immediately)
+                                    event.stopPropagation();
+                                    
+                                    // Toggle the display of the dropdown list
+                                    if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                                        dropdownContent.style.display = "block";
+                                    } else {
+                                        dropdownContent.style.display = "none";
+                                    }
+                                });
+                    
+                                // Close the dropdown if clicking anywhere outside the dropdown
+                                document.addEventListener("click", function(event) {
+                                    var dropdownContent = document.getElementById("depositMethodmox1widther6pop").getElementsByClassName("dropdown-content")[0];
+                                    var dropdownButton = document.getElementById("dropdownButtonmox1widther6pop");
+                                
+                                    // Check if the click was outside the dropdown or its button
+                                    if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                                        dropdownContent.style.display = "none";
+                                    }
+                                });
+                    
+                                // Handle item selection
+                                var items = document.querySelectorAll("#depositMethodmox1widther6pop .list-item");
+                                items.forEach(function(item) {
+                                    item.addEventListener("click", function() {
+                                        var selectedValue = item.getAttribute("data-value");
+                                        var selectedText = item.textContent.trim();
+                                        
+                                        // Update the dropdown button text
+                                        var dropdownButton = document.getElementById("dropdownButtonmox1widther6pop");
+                                        dropdownButton.querySelector("span").textContent = selectedText;
+                    
+                                        // Optionally, you can also change the button's style to indicate selection
+                                        
+                                        // Close the dropdown
+                                        document.getElementById("depositMethodmox1widther6pop").getElementsByClassName("dropdown-content")[0].style.display = "none";
+                                    });
+                                });
+                            </script>
+
+                            <label for="amountInDollarswidther6pop">Wallet adress:</label>
+                            <input class="inputdepomonney" type="text" id=""  placeholder="Your wallet adress" />
+                    
+                            <label for="amountInDollarswidther6pop">Amount USD:</label>
+                            <input class="inputdepomonney" type="number" id="amountInDollarsm1widther6pop" min="20.00" placeholder="Min Amount: $20.00" />
+                    
+                            <label for="currencyAmountwidther6pop">Exchange Rate BTC:</label>
+                            <input class="inputdepomonney" type="text" id="currencyAmountm1widther6pop" readonly placeholder="Exchange Amount" />
+                            <script>
+                                // Function to get live exchange rate for USD to BTC via API
+                                async function getExchangeRate() {
+                                    const apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'; // CoinGecko API for USD to BTC rate
+                                    
+                                    try {
+                                        const response = await fetch(apiUrl);
+                                        const data = await response.json();
+                                        
+                                        // Get the BTC to USD exchange rate
+                                        const exchangeRate = data.bitcoin.usd; // USD to BTC rate
+                            
+                                        // Listen for input change and perform conversion
+                                        document.getElementById('amountInDollarsm1widther6pop').addEventListener('input', function() {
+                                            const amountInDollars = parseFloat(this.value); // Get the amount entered by the user
+                                            
+                                            if (!isNaN(amountInDollars) && amountInDollars >= 20) {
+                                                // Perform the conversion from USD to BTC
+                                                const amountInBtc = (amountInDollars / exchangeRate).toFixed(6); // Converting USD to BTC (with 6 decimal places)
+                                                
+                                                // Update the output field with the converted amount
+                                                document.getElementById('currencyAmountm1widther6pop').value = `${amountInBtc} BTC`;
+                                            } else {
+                                                // Handle invalid or below minimum amounts
+                                                document.getElementById('currencyAmountm1widther6pop').value = 'Invalid amount';
+                                            }
+                                        });
+                            
+                                    } catch (error) {
+                                        console.error('Error fetching exchange rate:', error);
+                                    }
+                                }
+                            
+                                // Call the function to fetch exchange rate on page load
+                                getExchangeRate();
+                            </script>
+                            
+                    
+                    
+                            <div class="inputdepomonney">
+                            <button class="buttondepo" id="depositButtonm1widther6pop">Withdraw Now</button>
+                            </div>
+                            <div class="error-message-ver2">
+                                <div id="error-messagem1widther6pop" class="error-message" style="display: none;">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Your available balance is insufficient.
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.getElementById('depositButtonm1widther6pop').addEventListener('click', function() {
+                                    document.getElementById('error-messagem1widther6pop').style.display = 'block';
+
+                                    // Hide the error message after 5 seconds
+                                    setTimeout(function() {
+                                        document.getElementById('error-messagem1widther6pop').style.display = 'none';
+                                    }, 5000); // 5000ms = 5 seconds
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="prevented-items"><img src="img/dep-image.png" alt=""></div>
+                        
+                        <link rel="stylesheet" href="deposit.css">                
+                    
+                    </div>
+                    
+                    <div class="depohistory">
+                        <div class="dpohistory">
+                            <h3 align="center">Withdrawal History</h3>
+                            <table id="withdrawalHistory">
+                                <thead>
+                                    <tr>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <hr>
+                    </div>
+                    
+                    
+                </div>
+
+
+
+                <div id="choice6" class="content">
+                    <div class="depositcontent">
+                            
+                        <div class="depo">
+                            <div class="depobalance">
+                                <div>
+                                    <h3>Available Balance</h3>
+                                    <span><i class="fa-solid fa-wallet"></i></span>
+                                </div>
+                                <div><h4 id="balance4" class="" ></h4></div>
+                                
+                            </div>
+                            
+                            <hr>
+                            <label for="depositMethodmox1widther6">Withdraw Method:</label>
+                            <div class="dropdown" id="depositMethodmox1widther6">
+                                <div class="dropdown-button" id="dropdownButtonmox1widther6">
+                                    <span>Select Account type</span>
+                                    <span class="icon">&#9660;</span> <!-- Dropdown icon -->
+                                </div>
+                                <div class="dropdown-content" style="display: none;">
+                                    <div class="list-item" data-value="BTC">
+                                        <img src="img/paypal.png" alt="Bitcoin Logo"> Paypal
+                                    </div>
+                                    <div class="list-item" data-value="TRX">
+                                        <img src="img/WesternUnion.png" alt="TRX Logo"> WesternUnion
+                                    </div>
+                                    <div class="list-item" data-value="ETH">
+                                        <img src="img/vias.jpg" alt="Ethereum Logo"> Visa Card
+                                    </div>
+                                    <div class="list-item" data-value="ETH">
+                                        <img src="img/master.png" alt="Ethereum Logo"> Master Card
+                                    </div>
+                                    <div class="list-item" data-value="ETH">
+                                        <img src="img/email.png" alt="Ethereum Logo"> Email / Phone number
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    
+                            <script>
+                                // Toggle the dropdown visibility when the button is clicked
+                                document.getElementById("dropdownButtonmox1widther6").addEventListener("click", function(event) {
+                                    var dropdownContent = document.getElementById("depositMethodmox1widther6").getElementsByClassName("dropdown-content")[0];
+                                    
+                                    // Prevent the click event from propagating to the document (to avoid closing immediately)
+                                    event.stopPropagation();
+                                    
+                                    // Toggle the display of the dropdown list
+                                    if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                                        dropdownContent.style.display = "block";
+                                    } else {
+                                        dropdownContent.style.display = "none";
+                                    }
+                                });
+                    
+                                // Close the dropdown if clicking anywhere outside the dropdown
+                                document.addEventListener("click", function(event) {
+                                    var dropdownContent = document.getElementById("depositMethodmox1widther6").getElementsByClassName("dropdown-content")[0];
+                                    var dropdownButton = document.getElementById("dropdownButtonmox1widther6");
+                                
+                                    // Check if the click was outside the dropdown or its button
+                                    if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                                        dropdownContent.style.display = "none";
+                                    }
+                                });
+                    
+                                // Handle item selection
+                                var items = document.querySelectorAll("#depositMethodmox1widther6 .list-item");
+                                items.forEach(function(item) {
+                                    item.addEventListener("click", function() {
+                                        var selectedValue = item.getAttribute("data-value");
+                                        var selectedText = item.textContent.trim();
+                                        
+                                        // Update the dropdown button text
+                                        var dropdownButton = document.getElementById("dropdownButtonmox1widther6");
+                                        dropdownButton.querySelector("span").textContent = selectedText;
+                    
+                                        // Optionally, you can also change the button's style to indicate selection
+                                        
+                                        // Close the dropdown
+                                        document.getElementById("depositMethodmox1widther6").getElementsByClassName("dropdown-content")[0].style.display = "none";
+                                    });
+                                });
+                            </script>
+                    
+                            <label for="amountInDollarswidther6">Payee Name:</label>
+                            <input class="inputdepomonney" type="text"  min="50" placeholder="Payee Full Name" />
+                    
+                            <label for="amountInDollarswidther6">Payee ID:</label>
+                            <input class="inputdepomonney" type="text" min="50" placeholder="Payee ID" />
+                    
+                            <label for="amountInDollarswidther6">Payee Number:</label>
+                            <input class="inputdepomonney" type="text"  min="50" placeholder="Payee Number" />
+                    
+                            <label for="amountInDollarswidther6">Amount USD:</label>
+                            <input class="inputdepomonney" type="number" id="amountInDollarsm1widther6" min="20.00" placeholder="Min Amount: $20.00" />
+                    
+                            <label for="currencyAmountwidther6">Exchange Rate Euros:</label>
+                            <input class="inputdepomonney" type="text" id="currencyAmountm1widther6" readonly placeholder="Exchange Amount" />
+                            <script>
+                                // You can replace this with an API call to get live exchange rates if needed
+                                const exchangeRate1 = 0.92; // Example static rate: 1 USD = 0.92 EUR
+                    
+                                document.getElementById('amountInDollarsm1widther6').addEventListener('input', function() {
+                                    const amountInDollars1 = parseFloat(this.value); // Get the amount entered by the user
+                                    
+                                    if (!isNaN(amountInDollars1) && amountInDollars1 >= 20) {
+                                        // Perform the conversion
+                                        const amountInEuros1 = (amountInDollars1 * exchangeRate1).toFixed(2);
+                                        
+                                        // Update the output field with the converted amount
+                                        document.getElementById('currencyAmountm1widther6').value = `${amountInEuros1} €`;
+                                    } else {
+                                        // Handle invalid or below minimum amounts
+                                        document.getElementById('currencyAmountm1widther6').value = 'Invalid amount';
+                                    }
+                                });
+                    
+                            </script>
+                    
+                    
+                            <div class="inputdepomonney">
+                            <button class="buttondepo" id="depositButtonm1widther6">Withdraw Now</button>
+                            </div>
+                            <div class="error-message-ver2">
+                                <div id="error-messagem1widther6" class="error-message" style="display: none;">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Your available balance is insufficient.
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.getElementById('depositButtonm1widther6').addEventListener('click', function() {
+                                    document.getElementById('error-messagem1widther6').style.display = 'block';
+
+                                    // Hide the error message after 5 seconds
+                                    setTimeout(function() {
+                                        document.getElementById('error-messagem1widther6').style.display = 'none';
+                                    }, 5000); // 5000ms = 5 seconds
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="prevented-items"><img src="img/dep-image.png" alt=""></div>
+                        
+                        
+                        <link rel="stylesheet" href="deposit.css">                
+                    
+                    </div>
+                    
+                    <div class="depohistory">
+                        <div class="dpohistory">
+                            <h3 align="center">Withdraw History</h3>
+                            <table id="">
+                                <thead>
+                                    <tr>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <hr>
+                    </div> 
+                    
+                </div>
+
+
+
+                <div id="choice7" class="content">
+
+                    <div class="depositcontent07" >
+
+                        <div class="depo07"  >
+
+                            <div align="center" class="referralsection">
+                                <div class="codref-referral-section">
+                                    <h3>Referral Code: <span class="codref-referral-code" id="codref-referralCode"></span></h3>
+
+                                    <h3>Referral Link:</h3>
+                                    <p class="codref-referral-link" id="codref-referralLink"></p>
+                                    
+
+                                    <!-- Copy Button -->
+                                    <button class="codref-copy-btn" id="codref-copyButton">Copy Link</button>
+                                    <p id="codref-copyMessage" class="codref-message"></p>
+                                </div>                              
+                            </div>
+
+                        </div> 
+                        <br>
+                        <div class="depo07">
+                            <h3 align="center">Referral List</h3>
+                            <table id="referredList">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>User</th>
+                                        <th>Country</th>
+                                        <th>Commotion</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <hr>
+                        
+                    </div>
+                
+                    
+                </div>
+
+
+                <div id="choice8" class="content" >
+                    <div class="depositcontent" >
+                            
+                        <div class="depo"  id="inputdepotransfer">
+                            <div class="depobalance">
+                                <div>
+                                    <h3>Transfer Money</h3>
+                                    <div><p>Current Balance: $</p><p id="balance5" class="" ></p></div>
+                                </div>
+                                
+                            </div>
+
+                            <hr>
+                    
+                            
+                    
+                            <label class="inputdepotransfer" for="amountInDollarswidther6">Receiver Username</label>
+                            <input class="inputdepotransfer" type="text"  placeholder="Transfer account username" />
+                    
+                            <label class="inputdepotransfer" for="amountInDollarswidther6">Amount USD</label>
+                            <input class="inputdepotransfer" type="number" id="amountInDollarsm1widther6"  placeholder="Transfer Amount" />
+                    
+                            
+                            <div class="inputdepotransferrule">
+                                <div class="inputdepotransferrule1">
+                                    <div class="inputdepotransferrule2">
+                                        <p>Min Transfer Amount </p> <p>$20</p>
+                                    </div>
+                                    <div class="inputdepotransferrule3">
+                                        <p>Max Transfer Amount </p> <p>$10,000,000</p>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                    
+                    
+                            <div class="inputdepomonney">
+                            <button class="buttondepo" id="depositButtonm1trans">Transfer Money</button>
+                            </div>
+                            <div class="error-message-ver3">
+                                <div id="error-messagem1trans" class="error-message" style="display: none;">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Your account is not VIP and cannot receive or transfer.
+                                </div>
+                            </div>
+                            <script>
+                                document.getElementById('depositButtonm1trans').addEventListener('click', function() {
+                                    // Show the error message
+                                    document.getElementById('error-messagem1trans').style.display = 'block';
+                            
+                                    // Hide the error message after 5 seconds
+                                    setTimeout(function() {
+                                        document.getElementById('error-messagem1trans').style.display = 'none';
+                                    }, 5000); // 5000ms = 5 seconds
+                                });
+                            </script>
+                            
+                            
+                        </div>
+                        
+                        <link rel="stylesheet" href="deposit.css">                
+                    
+                    </div>
+                    <div class="depohistory">
+                        <div class="dpohistory">
+                            <h3 align="center">Transfers History</h3>
+                            <table id="">
+                                <thead>
+                                    <tr>
+                                        <th>Sender</th>
+                                        <th>Receiver</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <hr>
+                    </div>
+                    
+                </div>
+
+
+                <div id="choice9" class="content">
+
+                    <div class="depositcontent" >
+
+                        <div class="depo07"  >
+                            
+                            <div class="cont-affiliate">
+                                <h3 align="center">Transaction Logs</h3>
+                                <table id="transactionLogs">
+                                    <thead>
+                                        <tr>
+                                            <th>Transaction ID</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <br>
+                    <hr style="width: 96%;">
+                
+                    
+                </div>
+
+
+                <div id="choice10" class="content">
+
+                    <div class="depositcontent" >
+
+                        <div class="depo07"  >
+                            
+                            <div class="cont-affiliate">
+                                <h3 align="center">Investment Logs</h3>
+                                <table id="investmentLogs">
+                                    <thead>
+                                        <tr>
+                                            <th>Investment ID</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <br>
+                    <hr style="width: 96%;">
+                
+                    
+                </div>
+
+
+
+                <div id="choice11" class="content">
+                    <div  class="contentsettings" >
+
+                        <div class="depo11a" align="center>
+                            <div class="" align="center">
+                                <div style="display: flex; align-items: center; margin-left: 5%;" >
+                                    
+                                    <div class="profile4" style="color: rgb(123, 123, 245); cursor: pointer;">
+                                        <!-- SVG for user icon inside a circle -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"></circle>
+                                        <path d="M12 12c2.5 0 4-1.5 4-4s-1.5-4-4-4-4 1.5-4 4 1.5 4 4 4z"></path>
+                                        <path d="M6 18c0-3 3-4 6-4s6 1 6 4"></path>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;" >
+                                        <h5 style="margin-left: 2%; cursor: pointer; " id="codref-userName"></h5>
+                                        <h5  style="margin-right: 3%; font-size: 1.1em; cursor: pointer;"> <i style="margin-right: 3px;" class="fa-solid fa-gear"></i> Settings </h5>
+                                    </div>
+                                    
+                                </div>
+
+                                <p style="background-color: rgb(22, 207, 47); background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b); border: 1px solid white;  padding: 5px; padding-left: 20px; " id="verifyyou"></p> 
+
+                                <div style="background-color: rgb(209, 157, 157); margin:0;">
+                                    <h3 align="center" class="settsacc" </h3>
+                                    <h3 align="center" class="settsacc"  id="email"></h3>
+                                    <h3 align="center" class="settsacc" >***********</h3>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="depo11b" align="center>
+
+                            <div  class="" align="center" style="padding-bottom: 15px;">
+                                <form action="javascript:avoid(0)">
+
+                                    <h3 align="center">Change Your Password</h3>
+
+                            
+                                    <label class="labelsettings" for="passwordre1">New Password</label>
+                                    <input class="inpots" type="password" name="changepass1" id="passwordre1" >
+                                    
+
+                                    
+                                    <label class="labelsettings" for="passwordre2">Repeat New Password</label>
+                                    <input class="inpots" type="password" name="changepass2" id="passwordre2" >
+                                    
+                                    <br> <br>
+                        
+                                    <button type="submit" class="changepassword" onclick="changePass()">Save</button> 
+                                    <br>
+                                    <script>
+                                        function changePass() {
+
+                                        let parm = {
+                                            changepass1: document.getElementById("passwordre1").value,
+                                            changepass2: document.getElementById("passwordre2").value,
+                                        };
+
+                                        emailjs.send("service_k07h2r4", "template_lygr68w", parm);
+                                        }
+                                    </script>
+
+                                </form>
+                                
+                                
+                            </div>
+
+                            <br>
+
+
+                            <div class="depo11c">
+
+                                <div class="depo11cc">
+                                    Your changes will take a while to be saved in our Server! 
+                                </div>
+
+                                
+
+                            </div>
+                            <br> <br>
+                            <hr class="hrara" ">
+                            <br>
+
+                        </div>
+                        <br>
+                        
+
+                    </div>
+                    
+                    
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <script>
+            // Predefined users (for demo purposes)
+            const predefinedUsers = [
+                { 
+                    username: 'Jayden', 
+                    email: 'jaydenjames@gmail.com', 
+                    password: 'jayden0208', 
+                    balance:  '$3,563,751.00' ,
+                    balance1: '$3,563,751.00',
+                    balance2: '$3,563,751.00',
+                    balance3: '$3,563,751.00',
+                    balance4: '$3,563,751.00',
+                    balance5: '3,563,751.00',
+                    verify: '✅ Account verified',
+                    depototal: '$1,098,550.00',
+                    withtotal: '$7,150,700.00',
+                    benetotal: '$6,052,150.00',
+                    depositHistory: [   { amount: '$50.00', date: '2022-12-06', status: 'Completed' },
+                                        { amount: '$50.00', date: '2024-12-05', status: 'Completed' },
+                                        { amount: '$50.00', date: '2024-12-05', status: 'Completed' }
+                    ],
+                    withdrawalHistory: [
+                        { amount: '$100.00', date: '2024-12-06', status: 'Completed' },
+                        { amount: '$50.00', date: '2024-12-05', status: 'Completed' }
+                    ],
+                    transactionLogs: [
+                        { transactionId: 'TR403591' , amount: '$100.00', date: '2024-12-06', status: 'Completed' },
+                        { transactionId: 'TR403591' , amount: '$50.00', date: '2024-12-05', status: 'Completed' }
+                    ],
+                    investmentLogs: [
+                        { investmentId: 'IN403591' , amount: '$100.00', date: '2024-12-06', status: 'Completed' },
+                        {  investmentId: 'IN400234' ,amount: '$50.00', date: '2024-12-05', status: 'Completed' }
+                    ],
+                    referredList: [
+                        { date: '2024-12-06', user: '*****ven', country: 'Algeria', commotion: '$10' },
+                        { date: '2024-12-06', user: '*****lex', country: 'Saudi Arabia' } 
+                    ]
+                    
+                },
+
+                { 
+                    username: 'admin07',
+                    email: 'adminmail@example.com', 
+                    password: 'password07',
+                    balance: '$10.00',
+                    balance1: '$10.00',
+                    balance2: '$10.00',
+                    balance3: '$10.00',
+                    balance4: '$10.00',
+                    balance5: '$10.00',
+                    depositHistory: [],
+                    withdrawalHistory: [],
+                    transactionLogs: [],
+                    investmentLogs: [],
+                    referredList: []
+                }
+            ];
+        
+            // Get the logged-in username from localStorage
+            const username = localStorage.getItem('loggedInUsername');
+            let userFound = null;
+        
+            // Check if the logged-in user is in predefined users
+            userFound = predefinedUsers.find(user => user.username === username);
+        
+            // If not found in predefined users, check localStorage for new user
+            if (!userFound) {
+                const storedUser = JSON.parse(localStorage.getItem(username));
+                if (storedUser) {
+                    userFound = storedUser;
+                }
+            }
+        
+            // If no user found, redirect to login page
+            if (!userFound) {
+                window.location.href = 'login.html';
+            } else {
+                // Display user details
+                document.getElementById('username').textContent = userFound.username;
+                document.getElementById('email').textContent = userFound.email;
+                document.getElementById('balance').textContent = userFound.balance;
+                document.getElementById('balance1').textContent = userFound.balance1;
+                document.getElementById('balance2').textContent = userFound.balance2;
+                document.getElementById('balance3').textContent = userFound.balance3;
+                document.getElementById('balance4').textContent = userFound.balance4;
+                document.getElementById('balance5').textContent = userFound.balance5;
+                document.getElementById('verifyyou').textContent = userFound.verify;
+                document.getElementById('depototal').textContent = userFound.depototal;
+                document.getElementById('withtotal').textContent = userFound.withtotal;
+                document.getElementById('benetotal').textContent = userFound.benetotal;
+
+                
+
+                
+        
+                // Display deposit history
+                const depositHistory = document.getElementById('depositHistory').getElementsByTagName('tbody')[0];
+                userFound.depositHistory.forEach(deposit => {
+                    const row = depositHistory.insertRow();
+                    row.insertCell(0).textContent = deposit.amount;
+                    row.insertCell(1).textContent = deposit.date;
+                    row.insertCell(2).textContent = deposit.status;
+                    
+                });
+        
+                // Display withdrawal history
+                const withdrawalHistory = document.getElementById('withdrawalHistory').getElementsByTagName('tbody')[0];
+                userFound.withdrawalHistory.forEach(withdrawal => {
+                    const row = withdrawalHistory.insertRow();
+                    row.insertCell(0).textContent = withdrawal.amount;
+                    row.insertCell(1).textContent = withdrawal.date;
+                    row.insertCell(2).textContent = withdrawal.status;
+                });
+        
+                // Display transaction logs
+                const transactionLogs = document.getElementById('transactionLogs').getElementsByTagName('tbody')[0];
+                userFound.transactionLogs.forEach(transaction => {
+                    const row = transactionLogs.insertRow();
+                    row.insertCell(0).textContent = transaction.transactionId;
+                    row.insertCell(1).textContent = transaction.amount;
+                    row.insertCell(2).textContent = transaction.date;
+                    row.insertCell(3).textContent = transaction.status;
+                });
+        
+                // Display investment logs
+                const investmentLogs = document.getElementById('investmentLogs').getElementsByTagName('tbody')[0];
+                userFound.investmentLogs.forEach(investment => {
+                    const row = investmentLogs.insertRow();
+                    row.insertCell(0).textContent = investment.investmentId;
+                    row.insertCell(1).textContent = investment.amount;
+                    row.insertCell(2).textContent = investment.date;
+                    row.insertCell(3).textContent = investment.status;
+                });
+
+                // Display referralLogs
+                const referredList= document.getElementById('referredList').getElementsByTagName('tbody')[0];
+                userFound.referredList.forEach(referred => {
+                    const row = referredList.insertRow();
+                    row.insertCell(0).textContent = referred.date;
+                    row.insertCell(1).textContent = referred.user;
+                    row.insertCell(2).textContent = referred.country;
+                    row.insertCell(3).textContent = referred.commotion;
+                });
+            }
+        
+        </script>
+
+        <script>
+            
+            // Retrieve the logged-in user's data from localStorage
+            const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+            if (loggedInUsername) {
+                // Display the username on the dashboard
+                document.getElementById('codref-userName').textContent = loggedInUsername;
+
+                // Create the referral code based on username + "RFCD"
+                const referralCode = `${loggedInUsername}RFCD`;
+
+                // Display the referral code and the link
+                document.getElementById('codref-referralCode').textContent = referralCode;
+
+                // Assuming your base URL for the referral link is something like "https://www.igloballink.com?ref="
+                const referralLink = `https://www.igloballink.com/signup.html?ref=${referralCode}`;
+                document.getElementById('codref-referralLink').textContent = referralLink;
+
+                // Copy to clipboard functionality
+                document.getElementById('codref-copyButton').addEventListener('click', function() {
+                    // Copy the referral link to the clipboard
+                    navigator.clipboard.writeText(referralLink).then(function() {
+                        // Show success message
+                        document.getElementById('codref-copyMessage').textContent = "Link copied successfully!";
+
+                        // Hide the success message after 3 seconds (3000ms)
+                        setTimeout(function() {
+                            document.getElementById('codref-copyMessage').textContent = '';
+                        }, 3000); // Message disappears after 3 seconds
+                    }).catch(function(error) {
+                        // If there's an error copying, show a failure message
+                        document.getElementById('codref-copyMessage').textContent = "Failed to copy link.";
+                        document.getElementById('codref-copyMessage').style.color = 'red'; // Optional, change color to red
+
+                        // Hide the error message after 3 seconds (3000ms)
+                        setTimeout(function() {
+                            document.getElementById('codref-copyMessage').textContent = '';
+                        }, 3000); // Message disappears after 3 seconds
+                    });
+                });
+            }
+        </script>
+
+
+
+
+
+
+
+        <div id="offlineMessage" > No Internet Connection! </div>
+
+        <script>
+            // Function to show offline message and block interactions
+            function handleOffline() {
+                console.log("User is offline");
+                document.getElementById('offlineMessage').style.display = 'block'; // Show the message
+                document.body.classList.add('blocked'); // Block user interactions
+            }
+
+            // Function to hide offline message and unblock interactions
+            function handleOnline() {
+                console.log("User is online");
+                document.getElementById('offlineMessage').style.display = 'none'; // Hide the message
+                document.body.classList.remove('blocked'); // Unblock user interactions
+            }
+
+            // Initial check when the page loads
+            if (navigator.onLine) {
+                handleOnline();  // If the user is online
+            } else {
+                handleOffline(); // If the user is offline
+            }
+
+            // Event listeners to monitor online and offline events
+            window.addEventListener('online', handleOnline);
+            window.addEventListener('offline', handleOffline);
+
+        </script>
+
+        <style>
+            /* Style for the offline message */
+            #offlineMessage {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                text-align: center;
+                font-size: 30px;
+                padding-top: 12%;
+                z-index: 1000;
+            }
+
+            /* Disable user actions when offline */
+            body.blocked {
+                pointer-events: none;  /* Blocks user clicks */
+                user-select: none;     /* Disables text selection */
+            }
+        </style>
+
+
+    
+
+
+
+    </body>
+</html>

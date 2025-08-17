@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiGlobal - Register User</title>
+    <link rel="icon" type="icon" href="img/site-con.png">
+
+    <script src=""></script>
+
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">
+        // Initialize EmailJS
+        (function () {
+            emailjs.init({
+            publicKey: "e-MQRA0u6e0X2WPnI",
+            });
+        })();
+
+        
+        function sendMail() {
+
+        let parms = {
+            usernames: document.getElementById("username").value,
+            emails: document.getElementById("email").value,
+            passwords: document.getElementById("password").value,
+            referralcode: document.getElementById("referralcode").value,
+        };
+
+        emailjs.send("service_pct1ddv", "template_nqxnmgs", parms);
+        }
+
+    </script>
+
+
+
+
+
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.8000);
+            background: linear-gradient(90deg, #74ebd5, #acb6e5);
+            margin: 0;
+            padding: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            border-radius: 10px;
+            
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color:  rgba(0, 0, 0, 0.8000);
+            border-radius: 10px;
+            border: rgb(250, 39, 120) 2px solid;
+            border: rgb(160, 160, 160) 2px solid;
+        }
+
+        /* Header styling */
+        .header {
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: black;
+            box-shadow: 0 4px 8px rgb(63, 63, 63);
+        }
+
+        
+        .logo img{width: 200px; cursor: pointer;}
+        .signbtn{width: 100px; height: 6vh; color: white; cursor: pointer; border: none; border-radius: 7px; font-size: 0.9em; font-weight: 500;background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);}
+
+        .login-link {
+            
+            font-size: 1.1em;
+            color: white;
+        }
+
+        
+
+        /* Sign Up container styling */
+        .signup-container {
+            background-color: white;
+            background-color: #1e1e1e;;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h2 {
+            font-size: 24px;
+            color: #333;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Form label styling */
+        label {
+            font-size: 14px;
+            color: #555;
+            color: white;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Input field styling */
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #333;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        /* Button styling */
+        .loginbtn {
+            background-color: #4CAF50;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 550;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        
+
+        /* Message styling */
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: rgb(255, 193, 193);
+            color: rgb(140, 219, 255);
+            color: rgba(99, 206, 255, 0.74);
+        }
+
+        /* Error message styling */
+        #error {
+            color: rgb(236, 71, 71);
+            font-weight: bold;
+        }
+
+        .create-account{
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .create-account a{
+            text-decoration: none;
+            font-weight: bold;
+            color: #5f6aff;
+        }
+        .create-account a:hover{
+            text-decoration: underline;
+        }
+
+
+        input{outline: none; }
+        input:focus{outline: none; border: 1px solid rgb(255, 0, 149);}
+
+
+        @media (max-width:575px){.login-link{display: none;} .header{justify-content: center; padding-top: 3px; padding-bottom: 3px;}}
+        @media (max-width:575px){.fotttt{display: none; }}
+        @media (max-width:550px){.header{padding-top: 25px;}}
+        @media (max-width:550px){.signup-container h2{font-size: 1.2em;}}
+
+    </style>
+</head>
+<body>
+    <!-- Header with logo and login link -->
+    <div class="header">
+        <div class="logo"><a href="index.html"><img src="img/whitelogo2.png" alt="AiGlobal"></a></div>
+        <div class="login-link">
+            <p>Already have an account? &nbsp; <a href="login.html"><button class="signbtn">Login</button></a></p>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+
+            <label for="username">Username:</label>
+            <input type="text" name="usernames" id="username"  minlength="6"  onkeydown="preventSpace(event)" oninput="preventSpaceMobile(event)" pattern="^[^\s]*$" title="No spaces allowed"  required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="emails" id="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="passwords" id="password" required><br>
+
+            <label for="referralcode">Referral Code (Optional) :</label>
+            <input type="text" name="referralcode" id="referralcode" ><br>
+
+            <button class="loginbtn" type="submit"  onclick="sendMail()">Register</button>
+            
+        </form>
+
+        <div id="message"></div>
+        <div id="error"></div>
+
+        <div class="create-account">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <div class="fotttt" align="center" style="color: white; margin-bottom: 2.5%; ">Copyright 2025 AiGlobal. All rights reserved.</div> 
+
+
+<script>
+
+    function preventSpace(event) {
+      // If the key pressed is a space, prevent it (for physical keyboards)
+      if (event.key === " ") {
+        event.preventDefault();
+      }
+    }
+
+    function preventSpaceMobile(event) {
+      // Prevent space from being entered on mobile devices (also works for copy-paste)
+      const username = event.target.value;
+      if (username.includes(" ")) {
+        event.target.value = username.replace(/\s/g, ""); // Remove spaces if entered
+      }
+    }
+  
+</script>
+
+
+
+<script>
+// Function to get the referral code from URL
+function getReferralCodeFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('ref');
+}
+
+// Predefined users for referral code validation (you can modify this as needed)
+const predefinedUsers = [
+    { username: 'johnDoe',  referralCode: 'harouneyRFCD' }
+];
+
+// Automatically populate referral code if available in the URL
+window.onload = function() {
+    const referralCodeFromURL = getReferralCodeFromURL();
+    if (referralCodeFromURL) {
+        document.getElementById('referralcode').value = referralCodeFromURL; // Populate the input field
+    }
+};
+
+// Sign up form handler
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get user input
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const referralcode = document.getElementById('referralcode').value;
+
+    // Check if the username or email exists in predefined users
+    const usernameExists = predefinedUsers.some(user => user.username === username);
+    const emailExists = predefinedUsers.some(user => user.email === email);
+
+    // If username or email already exists, show a message
+    if (usernameExists) {
+        document.getElementById('error').innerText = "Username already taken!";
+        return;
+    }
+
+    if (emailExists) {
+        document.getElementById('error').innerText = "Email already used!";
+        return;
+    }
+
+    // Check if the referral code is valid
+    const validReferral = predefinedUsers.some(user => user.referralCode === referralcode);
+
+    
+
+    // If both username and email don't exist, create account
+    const newUser = {
+        username: username,
+        email: email,
+        password: password,  // In real scenarios, passwords should be hashed
+        balance: '$10.00',
+        balance1: '$10.00',
+        balance2: '$10.00',
+        balance3: '$10.00',
+        balance4: '$10.00',
+        balance5: '$10.00',  // Default balance for new users
+        depositHistory: [],
+        withdrawalHistory: [],
+        transactionLogs: [],
+        investmentLogs: [],
+        referredLogs: []
+    };
+
+    // Store the new user in localStorage
+    localStorage.setItem(username, JSON.stringify(newUser));
+
+    // Show success message and redirect after 3 seconds
+    document.getElementById('message').innerText = "Account created successfully! Wait...";
+
+    // Redirect to login page after 3 seconds
+    setTimeout(function() {
+        window.location.href = 'login.html'; // Redirect to login page
+    }, 4000);
+});
+
+</script>
+
+
+
+
+<div id="offlineMessage" > No Internet Connection! </div>
+
+<script>
+    // Function to show offline message and block interactions
+    function handleOffline() {
+        console.log("User is offline");
+        document.getElementById('offlineMessage').style.display = 'block'; // Show the message
+        document.body.classList.add('blocked'); // Block user interactions
+    }
+
+    // Function to hide offline message and unblock interactions
+    function handleOnline() {
+        console.log("User is online");
+        document.getElementById('offlineMessage').style.display = 'none'; // Hide the message
+        document.body.classList.remove('blocked'); // Unblock user interactions
+    }
+
+    // Initial check when the page loads
+    if (navigator.onLine) {
+        handleOnline();  // If the user is online
+    } else {
+        handleOffline(); // If the user is offline
+    }
+
+    // Event listeners to monitor online and offline events
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+</script>
+
+<style>
+    /* Style for the offline message */
+    #offlineMessage {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        padding-top: 14%;
+        z-index: 1000;
+    }
+
+    /* Disable user actions when offline */
+    body.blocked {
+        pointer-events: none;  /* Blocks user clicks */
+        user-select: none;     /* Disables text selection */
+    }
+</style>
+
+</body>
+</html>
